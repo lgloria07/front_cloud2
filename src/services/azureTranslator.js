@@ -38,17 +38,21 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
                 pero no deja leerlos, al usar Unit8Array nos da una vista de esos datos permitiendo que se 
                 lean y procesen
                 */
-                const audioData = reader.result;
-                const audioInputConfig = sdk.AudioConfig.fromWavFileInput(audioData);
+                const audioData = new Uint8Array(reader.result);
 
-                //configuramos la traduccion y el reconocimiento del audio con las llaves que tenemos 
                 const translationConfig = sdk.SpeechTranslationConfig.fromSubscription(speechKey, speechRegion);
 
-                //le decimos el idioma del audio/para nuestro caso por defecto es español de mexico
                 translationConfig.speechRecognitionLanguage = sourceLanguage;
-
-                //el idoma al q traducir
                 translationConfig.addTargetLanguage(targetLanguage);
+
+                // Crear stream de audio para Azure Speech
+                const pushStream = sdk.AudioInputStream.createPushStream();
+                pushStream.write(audioData);
+                pushStream.close();
+
+                const audioInputConfig = sdk.AudioConfig.fromStreamInput(pushStream);
+
+                const recognizer = new sdk.TranslationRecognizer(translationConfig, audioInputConfig);
 
                 // se convierte el auido 
 
@@ -71,7 +75,6 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
                 //configuracion del audio con el formato wav para respetar los encabezados y estructura del audio
 
                 //se crea el reconocedor de la traduccion
-                const recognizer = new sdk.TranslationRecognizer(translationConfig, audioInputConfig);
 
                 //instruccines para el reconomineot y la traduccion
                 recognizer.recognizeOnceAsync(
@@ -96,7 +99,7 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
                                 (synthResult) => {
                                     if (synthResult.reason === sdk.ResultReason.SynthesizingAudioCompleted) {
                                         //se crea un blob con el audio generado para poder reproducirlo o descargarlo
-                                        const audioBlob = new Blob([synthResult.audioData], { type: "audio/wav" });
+                                        const audioBlob = new Blob([synthResult.audioData], { type: "audio/mpeg" });
 
                                         resolve({
                                             texto: translatedText,
