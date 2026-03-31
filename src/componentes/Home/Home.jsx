@@ -88,7 +88,7 @@ const convertirAWav = async (file) => {
       method: "POST",
       body: formData
     });
-
+//Comentario prueba
     const audiofinal = await res.blob();
 
     return new File([audiofinal], "audio.wav", { type: "audio/wav" });
@@ -128,7 +128,7 @@ const handleSubir = async () => {
         ? 
         (
           <div className='container'>
-            <h2 style={{color: '#F8FAFC'}}>Audio Translator</h2>
+            <h2 style={{color: '#F8FAFC'}}>Audio Translator p</h2>
             <div className='subirVideo' onDragOver={(e) => handleDragOver(e)} onDragLeave={() => handleDragLeave()} onDrop={(e) => handleDrop(e)} ref={refSubir} onClick={() => {handleClick()}}>
               <p style={{color: '#F8FAFC'}}>{mensaje}</p>
               <img src={ruta}/>
