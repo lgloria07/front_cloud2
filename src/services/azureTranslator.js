@@ -17,8 +17,8 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
         const speechKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
         const speechRegion = import.meta.env.VITE_AZURE_SPEECH_REGION;
         console.log("VITE_BACKEND_URL:", import.meta.env.VITE_BACKEND_URL);
-        console.log("VITE_AZURE_KEY:", import.meta.env.VITE_AZURE_KEY);
-        console.log("VITE_AZURE_REGION:", import.meta.env.VITE_AZURE_REGION);
+        console.log("VITE_AZURE_SPEECH_KEY:", import.meta.env.VITE_AZURE_SPEECH_KEY);
+        console.log("VITE_AZURE_SPEECH_REGION:", import.meta.env.VITE_AZURE_SPEECH_REGION);
         
         // por si no hay nada
         if (!speechKey || !speechRegion) {
