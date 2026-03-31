@@ -123,7 +123,6 @@ const Home = () => {
     setFile(null);
     setAudioTraducido(null);
     setTraducido(false);
-    refSubir.current.classList.remove("subirSinBorde");
   }
 
   return (
@@ -133,7 +132,7 @@ const Home = () => {
         ? 
         (
           <div className='container'>
-            <h2 style={{color: '#F8FAFC'}}>Audio Translator p</h2>
+            <h2 style={{color: '#F8FAFC'}}>Audio Translator</h2>
             <div className='subirVideo'
               onDragOver={(e) => handleDragOver(e)}
               onDragLeave={() => handleDragLeave()}
