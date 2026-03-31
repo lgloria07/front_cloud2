@@ -1,0 +1,120 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: solid;
+  border-color: #7C3AED;
+  box-shadow: 0px 10px 30px -5px rgba(124, 58, 237, 0.3);
+  border-radius: 10px;
+  width: 500px;
+  height: 450px;
+  padding-bottom: 15px;
+  gap: 10px;
+}
+.subirVideo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: dashed;
+  border-color: #A78BFA;
+  width: 80%;
+  height: 200px;
+  border-radius: 10px;
+}
+.subirSinBorde{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: none !important;
+  width: 80%;
+  height: 200px;
+}
+.containerBotones{
+  width: 71%;
+  height: auto;
+  border: solid;
+  border-color: #3b404b;
+  background-color: #3b404b;
+  border-radius: 100px;
+}
+.botonConfig{
+  text-align: center;
+  border-radius: 100px;
+  background-color: #3b404b;
+  color: #F8FAFC;
+}
+.botonConfig:focus{
+  background-color: #7C3AED;
+  outline: none;
+  box-shadow: none;
+}
+.botonSubir{
+  width: 71%;
+  border-radius: 10px;
+  background-color: #7C3AED;
+  border-color: #7C3AED;
+  color: #F8FAFC;
+}
+.botonSubir:focus{
+  outline: none;
+  box-shadow: none;
+}
+.botonConfig:hover{
+  background-color: #7C3AED;
+  border-color: #7C3AED;
+}
+.botonSubir:hover{
+  border-color: #7C3AED;
+  box-shadow: 0px 10px 30px -5px rgba(124, 58, 237, 0.3);
+}
+.subirVideo img{
+  width: 105px;
+  height: 100px;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: solid;
+  border-color: #7C3AED;
+  box-shadow: 0px 10px 30px -5px rgba(124, 58, 237, 0.3);
+  border-radius: 10px;
+  width: 500px;
+  height: 450px;
+}
+.containerTitle {
+    width: 100%;
+    height: 20%;
+}
+.containerAudio{
+    border: solid #7C3AED;
+    border-radius: 20px;
+    border-width: 0.5px;
+    width: 90%;
+    height: 30%;
+}
+.botonVolver{
+  width: 71%;
+  border-radius: 10px;
+  background-color: #7C3AED;
+  border-color: #7C3AED;
+  color: #F8FAFC;
+  margin-top: 5px;
+}
+.botonVolver:focus{
+  outline: none;
+  box-shadow: none;
+}
+.botonVolver:hover{
+  border-color: #7C3AED;
+  box-shadow: 0px 10px 30px -5px rgba(124, 58, 237, 0.3);
+}
