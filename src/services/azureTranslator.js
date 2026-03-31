@@ -38,7 +38,8 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
                 pero no deja leerlos, al usar Unit8Array nos da una vista de esos datos permitiendo que se 
                 lean y procesen
                 */
-                const audioData = new Uint8Array(reader.result);
+                const audioData = reader.result;
+                const audioInputConfig = sdk.AudioConfig.fromWavFileInput(audioData);
 
                 //configuramos la traduccion y el reconocimiento del audio con las llaves que tenemos 
                 const translationConfig = sdk.SpeechTranslationConfig.fromSubscription(speechKey, speechRegion);
@@ -68,7 +69,6 @@ export const translateAudio = (audioFile, sourceLanguage = "es-MX", targetLangua
                 */
                 
                 //configuracion del audio con el formato wav para respetar los encabezados y estructura del audio
-                const audioInputConfig = sdk.AudioConfig.fromWavFileInput(audioData);
 
                 //se crea el reconocedor de la traduccion
                 const recognizer = new sdk.TranslationRecognizer(translationConfig, audioInputConfig);
