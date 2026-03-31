@@ -88,8 +88,14 @@ const convertirAWav = async (file) => {
       method: "POST",
       body: formData
     });
+
+    console.log("STATUS BACKEND:", res.status);
+    console.log("CONTENT TYPE:", res.headers.get("content-type"));
 //Comentario prueba
     const audiofinal = await res.blob();
+    console.log("BLOB TYPE:", audiofinal.type);
+    console.log("BLOB SIZE:", audiofinal.size);
+    }
 
     return new File([audiofinal], "audio.wav", { type: "audio/wav" });
   };
